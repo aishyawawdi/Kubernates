@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service # Service for mysql
+metadata:
+  name: service_mysql
+spec:
+  selector:
+    app: mysql # the selector select all the pods with this label
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306

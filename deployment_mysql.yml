@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment # Deployment for mysql
+metadata:
+  name: deployment_mysql
+  labels:
+    app: mysql 
+spec:
+  replicas: 3 # number of pods of mysql
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:latest # # Docker-img name for mysql
+        ports:
+        - containerPort: 3306 # mysql port
